@@ -6,8 +6,15 @@ mongoose.connect(connectURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
 mongoose.connection
   .once("open", () => console.log("Good to go"))
   .on("error", error => {
     console.warn("Warning", error);
   });
+
+beforeEach(done => {
+  mongoose.connection.collections.users.drop(() => {
+    done();
+  });
+});
