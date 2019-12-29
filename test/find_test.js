@@ -14,7 +14,7 @@ describe("Finding Records", () => {
   });
   it("Finding a User", () => {
     User.find({ name: "Malik" }).then(user => {
-      console.log(user);
+      assert(malik._id.toString() === user[0]._id.toString());
     });
   });
 });
