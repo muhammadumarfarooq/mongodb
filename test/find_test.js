@@ -17,4 +17,15 @@ describe("Finding Records", () => {
       assert(malik._id.toString() === user[0]._id.toString());
     });
   });
+
+  it("Find User with ID", done => {
+    User.findOne({ _id: malik._id })
+      .then(user => {
+        assert(user.name === malik.name);
+        done();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
 });
