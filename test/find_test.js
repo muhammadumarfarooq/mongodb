@@ -12,5 +12,9 @@ describe("Finding Records", () => {
         console.log(error);
       });
   });
-  it("Finding a User", () => {});
+  it("Finding a User", () => {
+    User.find({ name: "Malik" }).then(user => {
+      console.log(user);
+    });
+  });
 });
